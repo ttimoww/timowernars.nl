@@ -12,7 +12,6 @@ module.exports = {
   importOrder: [
     '^(react/(.*)$)|^(react$)',
     '^(next/(.*)$)|^(next$)',
-    '^.contentlayer/(.*)$',
     '<THIRD_PARTY_MODULES>',
     '^@/app/(.*)$',
     '^@/config/(.*)$',
