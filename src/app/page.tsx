@@ -1,3 +1,5 @@
+import { Button } from '@/components/ui/button';
+
 export default function Home() {
 	return (
 		<main className="p-4 text-slate-800">
@@ -7,6 +9,7 @@ export default function Home() {
 				<li>Prettier</li>
 				<li>Tailwind</li>
 			</ul>
+			<Button>Shadcn button</Button>
 		</main>
 	);
 }
