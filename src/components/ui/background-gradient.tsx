@@ -79,7 +79,7 @@ export function BackgroundGradientAnimation({
 
 	return (
 		<>
-			<div className="h-screen w-screen absolute top-0 left-0 -z-10">
+			<div className="h-screen w-screen absolute overflow-clip top-0 left-0 -z-10">
 				<svg className="hidden">
 					<defs>
 						<filter id="blurMe">

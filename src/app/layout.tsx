@@ -1,7 +1,6 @@
 import { Antonio, Roboto } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import { Header } from '@/components/header/header';
-import { BackgroundGradientAnimation } from '@/components/ui/background-gradient';
 import '@/styles/globals.css';
 
 const antonio = Antonio({
@@ -26,10 +25,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 	return (
 		<html lang="en" className={cn(antonio.variable, roboto.variable, 'bg-black text-white font-roboto')}>
 			<body>
-				<BackgroundGradientAnimation>
-					<Header />
-					<div className="pt-28 md:pt-40">{children}</div>
-				</BackgroundGradientAnimation>
+				<Header />
+				{children}
 			</body>
 		</html>
 	);

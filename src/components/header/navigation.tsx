@@ -3,7 +3,7 @@ import { ExternalLinkIcon } from 'lucide-react';
 
 export function Navigation() {
 	return (
-		<nav className="bg-zinc-600/50 backdrop-blur-lg px-8 py-4 rounded-full text-sm w-fit tracking-wide">
+		<nav className="bg-zinc-600/50 backdrop-blur-lg px-8 py-4 rounded-full text-sm w-fit tracking-wide h-[50px]">
 			<ul className="flex gap-8">
 				<Link href="#" className="font-semibold hover:text-white transition-colors">
 					Home

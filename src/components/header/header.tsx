@@ -3,9 +3,11 @@ import { Navigation } from '@/components/header/navigation';
 
 export function Header() {
 	return (
-		<header className="container border py-5 fixed left-1/2 -translate-x-1/2 z-10">
-			<Navigation />
-			<GetInTouch />
+		<header className="py-5 fixed w-full left-1/2 -translate-x-1/2 z-10">
+			<div className="container">
+				<Navigation />
+			</div>
+			<GetInTouch className="absolute right-4 top-1/2 -translate-y-1/2" />
 		</header>
 	);
 }
