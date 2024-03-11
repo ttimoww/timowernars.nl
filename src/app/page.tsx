@@ -20,9 +20,8 @@ export default function Home() {
 function BlogPosts() {
 	return (
 		<section className="container">
-			<h2 className="font-antonio text-4xl md:text-5xl leading-[54px] md:leading-[96px] mb-6 md:mb-10">
-				I WROTE SOME BLOG POSTS
-			</h2>
+			<h2 className="text-4xl md:text-5xl mb-2">I Wrote Some Articles</h2>
+			<p className="text-zinc-500 text-sm mb-6 italic">12 to be exact</p>
 			<div className="grid md:grid-cols-[33.3%_66.6%] gap-6">
 				<Post orientation="horizontal" className="row-span-2 col-span-1" />
 				<Post orientation="vertical" className="" />
