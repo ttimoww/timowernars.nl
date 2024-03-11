@@ -3,7 +3,7 @@ import { Navigation } from '@/components/header/navigation';
 
 export function Header() {
 	return (
-		<header className="py-5 fixed w-full left-1/2 -translate-x-1/2 z-10">
+		<header className="py-5 fixed w-full left-1/2 -translate-x-1/2 z-20">
 			<div className="container">
 				<Navigation />
 			</div>
