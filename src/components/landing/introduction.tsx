@@ -8,7 +8,7 @@ export function Introduction() {
 					<span className="block">FREELANCE</span>
 					<span className="block">WEB DEVELOPER</span>
 					<span className="block">SPECIALIZING IN</span>
-					<span className="block">REACT & NEXT JS</span>
+					<span className="block ">REACT & NEXT JS</span>
 				</h1>
 			</div>
 			<div className="absolute left-1/4 -bottom-[150px] md:right-8 md:top-0 md:left-auto md:bottom-auto">
