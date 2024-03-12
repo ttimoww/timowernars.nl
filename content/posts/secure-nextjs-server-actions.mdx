@@ -1,0 +1,125 @@
+---
+title: Building Secure NextJS Server Actions
+date: 2024-02-16
+description: NextJS Server Actions are great, but they lack a crucial aspect of security. Learn how to protect your Server Actions with using next-server-action-validation and read about my motivation behind creating this package.
+---
+
+It's not a surprise that I'm a big `Next.js` fan. Especially working with Server Actions is a great experience. However, in my opinion, there's a crucial aspect of security that is way too often overlooked. To contribute my part to the Next.js community, I've created a package called `next-server-action-validation` which aims to solve this problem. In this article, I'll explain the motivation behind creating this package and how to use it to secure your NextJS Server Actions.
+
+## The Birth of NextJS Server Actions
+
+Before we dive into the action (see what I did there?), let's take a step back and look at the (short) history of NextJS Server Actions.
+
+Traditionally, communicating with the server-side in NextJS required creating an API route. However, with the release of [NextJS 13](https://nextjs.org/blog/next-13) in October 2022, Vercel introduced an experimental concept known as '**Server Actions**'.
+
+A year later, in October 2023, the launch of [NextJS 14](https://nextjs.org/blog/next-14) marked Server Actions as a stable feature. The initial reception of Server Actions was not great, resulting in a wave of memes and jokes about how 'ridiculous' the feature was. One particular image from the NextJS 14 presentation was widely circulated.
+
+![Vercel Presentation NextJS Server Actions](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/iik0mluurcpf230xboy9.jpg)
+
+For many developers, the idea of integrating SQL within a ReactJS component seemed absurd. And indeed, from a developer's perspective, I concur. However, I believe the criticism Server Actions received was not entirely justified.
+
+Obviously, during the Vercel presentation, they used this piece of code to give an example of what Server Actions are and how you can use them. In my opinion, they did a great job in shipping the message.
+
+A few months later, I absolutely fell in love with Server Actions. When I need to pass data from the client to my server, I simply create a function annotated with the `use server` flag and call it from my client component. This eliminates the need for a full API endpoint, greatly enhancing code readability and development speed. However there's one critical aspect of Server Actions that is often overlooked.
+
+## The Problem With Server Actions
+
+So what's the problem with Server Actions? As I mentioned earlier, the problem a lot of developers overlook is the security of their Server Actions. Since Server Actions are essentially compiled into 'regular' API routes by NextJS, it's crucial to validate all incoming data before it flows into your server side logic.
+
+Many developers use [Zod](https://zod.dev/) to validate input data on the front end before sending it to the backend via a Server Action. While this is a good practice, it leaves your Server Actions —or essentially your API routes— still vulnerable to invalid data, allowing bad-actors to directly send any data they wish to the server side of your application.
+
+Implementing (copying) the same Zod schema from your client component into your server action is a solution. However, as lazy developers, we do not want to repeat ourselves (keep it DRY!).
+
+## The Solution
+
+The solution to this problem is to migrate the Zod schema, which validates user input, directly into your Server Action and ship all validation errors back to your Client Component. This results into your Server Action being fully secure, while still providing the capability to display appropriate input validation errors on the front-end based on the Zod results. This is exactly what [next-server-action-validation](https://www.npmjs.com/package/next-server-action-validation) solves.
+
+## Implementing `next-server-action-validation`
+
+So how do you use `next-server-action-validation`? It's quite simple.
+
+### Installation
+
+`npm install next-server-action-validation zod`
+
+### Usage
+
+As mentioned, we use [Zod](https://github.com/colinhacks/zod) for the runtime validation of data that that gets passed into our Server Actions. This package provides a function called `withValidation` which wraps your Server Action and validates the data passed into it.
+
+#### Step 1: Protect your Server Action
+
+To protect your server action it needs to be wrapped in the `withValidation` function together with a Zod.js validation schema.
+
+```ts
+// server-action.ts
+'use server';
+
+import { withValidation } from 'next-server-action-validation';
+import * as z from 'zod';
+
+// server-action.ts
+
+// 1. Create the Validation Schema
+const myServerActionSchema = z.object({
+	name: z.string().min(4)
+});
+
+// 2. Wrap your server action in the `withValidation` function
+export const myServerAction = withValidation(
+	myServerActionSchema,
+	async (data: z.infer<typeof myServerActionSchema>) => {
+		console.log(data); // Data is fully typesafe
+		return true;
+	}
+);
+```
+
+### Step 2: Use your Server Action
+
+To use your server action and check for validation errors we can simply call our action and pass its result into the `isValidationError` function. If this function resolves to be truthy the validation failed. From now on the type of our result is a `ValidationError` which holds all validation errors.
+
+```jsx
+// page.tsx
+'use client';
+
+import { useState } from 'react';
+import { isValidationError } from 'next-server-action-validation';
+import { myServerAction } from '@/app/page.actions';
+
+// page.tsx
+
+export default function Home() {
+	const [myString, setMyString] = useState('');
+
+	async function handleSave() {
+		// 1. Call your server action as normal
+		const result = await myServerAction({ name: myString });
+
+		// 2. Check for validation errors
+		if (isValidationError(result)) {
+			// The type of result.errors is an array of `ZodIssues`
+			// which we can use to display proper error messages
+			console.log(result.errors);
+
+			// 3. Return out of the function
+			return;
+		}
+
+		// 4. Proceed as normal
+		console.log('We passed correct data!');
+	}
+
+	return (
+		<main>
+			<Input onChange={(e) => setMyString(e.target.value)} />
+			<Button onClick={handleSave}>Save</Button>
+		</main>
+	);
+}
+```
+
+## Conclusion
+
+In conclusion, `next-server-action-validation` bridges a crucial gap in NextJS Server Actions by securely integrating Zod schema validation directly into server-side processing. This approach not only fortifies your Server Actions against invalid data but also maintains the ease of displaying validation errors on the client side.
+
+By using this package, you can enhance your NextJS applications' security without sacrificing development speed or violating the DRY principle. It's a step forward in making full-stack development with NextJS more robust and efficient.

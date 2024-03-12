@@ -3,7 +3,7 @@ import Image from 'next/image';
 export function Introduction() {
 	return (
 		<section className="relative container">
-			<div className="text-5xl font-antonio md:text-[5rem] leading-[54px] md:leading-[96px]">
+			<div className="text-white text-5xl font-antonio md:text-[5rem] leading-[54px] md:leading-[96px]">
 				<h1>
 					<span className="block">FREELANCE</span>
 					<span className="block">WEB DEVELOPER</span>

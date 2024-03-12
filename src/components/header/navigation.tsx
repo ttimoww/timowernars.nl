@@ -39,7 +39,7 @@ function DesktopNavigation({ className, ...props }: DesktopNavigationProps) {
 			{...props}
 		>
 			<ul className="flex gap-8">
-				<Link href="#" className="font-semibold hover:text-white transition-colors">
+				<Link href="/" className="font-semibold text-white hover:text-white transition-colors">
 					Home
 				</Link>
 				<Link href="#" className="text-zinc-300 hover:text-white transition-colors">

@@ -76,7 +76,7 @@ export function WavyBackground({
 
 	let animationId: number;
 	const render = () => {
-		ctx.fillStyle = backgroundFill || 'rgb(7, 11, 23)';
+		ctx.fillStyle = backgroundFill || '#070b17';
 		ctx.globalAlpha = waveOpacity || 0.5;
 		ctx.fillRect(0, 0, w, h);
 		drawWave(5);
