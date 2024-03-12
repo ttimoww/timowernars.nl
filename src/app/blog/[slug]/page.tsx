@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation';
 import { Post, allPosts } from 'contentlayer/generated';
 import { format } from 'date-fns';
 import { Author } from '@/components/blog-page/author';
-import Mdx from '@/components/ui/mdx';
 import { Separator } from '@/components/ui/separator';
 import '@/styles/mdx.css';
 
@@ -76,20 +75,5 @@ export default function PostPage({ params }: PostPageProps) {
 			</div>
 			<Separator className="my-6" />
 		</main>
-	);
-
-	return (
-		<>
-			<p className="text-sm text-secundary">Pusblished on {format(new Date(post.date), 'MMMM d, yyyy')}</p>
-			{/* <Heading as="h1" className="text-5xl md:text-6xl lg:text-7xl">
-				{post.title}
-			</Heading> */}
-			<div className="flex justify-between items-end">
-				{/* <Author /> */}
-				<p className="text-sm text-secundary">5 minute read</p>
-			</div>
-			<hr className="my-6 border-slate-200" />
-			<Mdx code={post.body.code} />
-		</>
 	);
 }
