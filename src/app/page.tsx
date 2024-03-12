@@ -4,11 +4,12 @@ import { cn } from '@/lib/utils';
 import { Introduction } from '@/components/landing/introduction';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
+import { TextReveal } from '@/components/ui/text-reveal';
 import { WavyBackground } from '@/components/ui/wavy-background';
 
 export default function Home() {
 	return (
-		<main>
+		<main className="pb-20">
 			<WavyBackground>
 				<Introduction />
 			</WavyBackground>
@@ -20,12 +21,13 @@ export default function Home() {
 function BlogPosts() {
 	return (
 		<section className="container">
-			<h2 className="text-4xl md:text-5xl mb-2">I Wrote Some Articles</h2>
-			<p className="text-zinc-500 text-sm mb-6 italic">12 to be exact</p>
-			<div className="grid md:grid-cols-[33.3%_66.6%] gap-6">
+			<TextReveal text="I like writing about cool stuff" revealText="But I prefer writing <code />" />
+			{/* <h2 className="text-[2rem] sm:text-[3rem] font-bold mb-2">I Wrote Some Articles</h2> */}
+			{/* <p className="text-zinc-500 text-sm mb-6 italic">12 posts</p> */}
+			<div className="grid md:grid-cols-3 gap-6">
 				<Post orientation="horizontal" className="row-span-2 col-span-1" />
-				<Post orientation="vertical" className="" />
-				<Post orientation="vertical" className="" />
+				<Post orientation="vertical" className="col-span-2" />
+				<Post orientation="vertical" className="col-span-2" />
 			</div>
 		</section>
 	);
@@ -38,10 +40,7 @@ function Post({ orientation = 'vertical', className, ...props }: PostProps) {
 	return (
 		<article
 			className={cn(
-				'border rounded-2xl overflow-hidden text-zinc-500 bg-zinc-950 border-zinc-900 grid grid-cols-1',
-				{
-					'md:grid-cols-[33.3%_66.6%]': orientation === 'vertical'
-				},
+				'border rounded-2xl overflow-hidden text-zinc-500 bg-zinc-950/50 backdrop-blur-lg border-zinc-900 grid grid-cols-1',
 				className
 			)}
 			{...props}
