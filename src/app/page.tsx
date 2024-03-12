@@ -3,6 +3,7 @@ import { format } from 'date-fns';
 import { cn } from '@/lib/utils';
 import { Introduction } from '@/components/landing/introduction';
 import { Badge } from '@/components/ui/badge';
+import { Icons } from '@/components/ui/icons';
 import { Separator } from '@/components/ui/separator';
 import { TextReveal } from '@/components/ui/text-reveal';
 import { WavyBackground } from '@/components/ui/wavy-background';
@@ -18,12 +19,25 @@ export default function Home() {
 	);
 }
 
+function Technologies() {
+	const iconCn = 'inline w-[30px] h-[30px]';
+	return (
+		<section className="border container">
+			<p className="text-[2rem] sm:text-[2.5rem]">
+				My expertises are <Icons.nextjs className={cn(iconCn, '')} />{' '}
+				<Icons.reactjs className={cn(iconCn, '')} /> <Icons.typescript className={cn(iconCn)} />
+				<br />
+				But I&apos;m also a big fan of <Icons.tailwindcss className={cn(iconCn)} />{' '}
+				<Icons.nestjs className={cn(iconCn)} /> <Icons.postgress className={cn(iconCn)} />
+			</p>
+		</section>
+	);
+}
+
 function BlogPosts() {
 	return (
 		<section className="container">
-			<TextReveal text="I like writing about cool stuff" revealText="But I prefer writing <code />" />
-			{/* <h2 className="text-[2rem] sm:text-[3rem] font-bold mb-2">I Wrote Some Articles</h2> */}
-			{/* <p className="text-zinc-500 text-sm mb-6 italic">12 posts</p> */}
+			<TextReveal text="I like writing about cool stuff" revealText="(But I prefer writing code)" />
 			<div className="grid md:grid-cols-3 gap-6">
 				<Post orientation="horizontal" className="row-span-2 col-span-1" />
 				<Post orientation="vertical" className="col-span-2" />
