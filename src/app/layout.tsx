@@ -2,6 +2,7 @@ import { Antonio, Roboto } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import { Header } from '@/components/header/header';
 import '@/styles/globals.css';
+import '@/styles/mdx.css';
 
 const antonio = Antonio({
 	subsets: ['latin'],

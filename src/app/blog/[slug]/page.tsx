@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import { Post, allPosts } from 'contentlayer/generated';
 import { format } from 'date-fns';
 import { Author } from '@/components/blog-page/author';
+import { Heading } from '@/components/ui/heading';
+import { Mdx } from '@/components/ui/mdx';
 import { Separator } from '@/components/ui/separator';
 import '@/styles/mdx.css';
 
@@ -64,16 +66,28 @@ export default function PostPage({ params }: PostPageProps) {
 	if (!post) notFound();
 
 	return (
-		<main className="container pt-32">
-			<p className="text-sm text-zinc-500">Pusblished on {format(new Date(post.date), 'MMMM d, yyyy')}</p>
-			<h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent py-4">
-				{post.title}
-			</h1>
-			<div className="flex justify-between items-end">
-				<Author />
-				<p className="text-sm text-zinc-500">5 minute read</p>
-			</div>
-			<Separator className="my-6" />
-		</main>
+		<div className="pt-32">
+			<main className="container max-w-3xl relative">
+				<Gradients />
+				<p className="text-sm text-zinc-500">Pusblished on {format(new Date(post.date), 'MMMM d, yyyy')}</p>
+				<Heading as="h1" className="text-5xl md:text-6xl lg:text-7xl ">
+					{post.title}
+				</Heading>
+				<div className="flex justify-between items-end">
+					<Author />
+					<p className="text-sm text-zinc-500">5 minute read</p>
+				</div>
+				<Separator className="my-6" />
+				<Mdx code={post.body.code} />
+			</main>
+		</div>
+	);
+}
+
+function Gradients() {
+	return (
+		<div aria-hidden="true" className="absolute inset-0 grid grid-cols-2 opacity-40 ">
+			<div className="blur-[100px] h-[15rem] aspect-square bg-gradient-to-br from-blue-400 to-purple-400 absolute top-0 right-0"></div>
+		</div>
 	);
 }

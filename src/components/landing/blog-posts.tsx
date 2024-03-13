@@ -9,8 +9,13 @@ import { TextReveal } from '@/components/ui/text-reveal';
 
 export function BlogPosts() {
 	return (
-		<section className="container">
-			<TextReveal text="I like writing about cool stuff" revealText="(But I prefer writing code)" />
+		<section className="container relative">
+			<Gradients />
+			<TextReveal
+				className="w-full md:w-fit"
+				text="I like writing about cool stuff"
+				revealText="(But I prefer writing code)"
+			/>
 			<div className="grid md:grid-cols-3 gap-6">
 				{allPosts.map((post, i) => (
 					<BlogPost
@@ -18,13 +23,22 @@ export function BlogPosts() {
 						post={post}
 						orientation={i === 0 ? 'horizontal' : 'vertical'}
 						className={cn({
-							'row-span-2 col-span-1': i === 0,
-							'col-span-2': i !== 0
+							'md:row-span-2 md:col-span-1': i === 0,
+							'md:col-span-2': i !== 0
 						})}
 					/>
 				))}
 			</div>
 		</section>
+	);
+}
+
+function Gradients() {
+	return (
+		<div aria-hidden="true" className="absolute inset-0 grid grid-cols-2 opacity-40 ">
+			<div className="blur-[100px] h-[15rem] aspect-square bg-gradient-to-br from-blue-400 to-purple-400 absolute top-0 right-0"></div>
+			<div className="blur-[70px] h-[10rem] aspect-square bg-gradient-to-r from-cyan-400 to-sky-300 absolute -bottom-10 -left-5"></div>
+		</div>
 	);
 }
 
@@ -36,14 +50,14 @@ function BlogPost({ post, orientation = 'vertical', className, ...props }: PostP
 	return (
 		<article
 			className={cn(
-				'border rounded-2xl overflow-hidden bg-zinc-950/50 backdrop-blur-lg grid grid-cols-1',
+				'border rounded-2xl overflow-hidden bg-zinc-900/50 backdrop-blur-lg grid grid-cols-1',
 				className
 			)}
 			{...props}
 		>
 			<Link href={`/blog/${post.slug}`}>
 				<div
-					className={cn('bg-green-100 relative overflow-hidden h-44 ', {
+					className={cn('bg-green-100 relative overflow-hidden h-44  hidden md:block', {
 						'md:h-auto': orientation === 'vertical'
 					})}
 				>

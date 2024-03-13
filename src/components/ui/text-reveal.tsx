@@ -4,11 +4,11 @@ import React, { useEffect, useRef, useState, memo } from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
-interface TextRevealProps {
+interface TextRevealProps extends React.HTMLProps<HTMLDivElement> {
 	text: string;
 	revealText: string;
 }
-export function TextReveal({ text, revealText }: TextRevealProps) {
+export function TextReveal({ text, revealText, className, ...props }: TextRevealProps) {
 	const containerRef = useRef<HTMLDivElement | any>(null);
 
 	const [widthPercentage, setWidthPercentage] = useState(0);
@@ -50,7 +50,8 @@ export function TextReveal({ text, revealText }: TextRevealProps) {
 			onMouseLeave={mouseLeaveHandler}
 			onMouseMove={mouseMoveHandler}
 			ref={containerRef}
-			className={cn('w-fit pr-10 relative overflow-hidden')}
+			className={cn('w-fit pr-10 relative overflow-hidden', className)}
+			{...props}
 		>
 			<div className="relative flex items-center overflow-hidden">
 				<motion.div
@@ -86,7 +87,7 @@ export function TextReveal({ text, revealText }: TextRevealProps) {
 					className="h-full w-[8px] bg-gradient-to-b from-transparent via-neutral-600 to-transparent absolute z-50 will-change-transform"
 				/>
 
-				<div className="overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,white,transparent)]">
+				<div className="overflow-hidden w-full [mask-image:linear-gradient(to_bottom,transparent,white,transparent)]">
 					<p className="text-[2rem] sm:text-[3rem] py-5 font-bold bg-clip-text text-transparent bg-[#7e7e89]">
 						{text}
 					</p>
