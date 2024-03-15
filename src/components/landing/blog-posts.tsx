@@ -30,15 +30,6 @@ export function BlogPosts() {
 	);
 }
 
-function Gradients() {
-	return (
-		<div aria-hidden="true" className="absolute inset-0 grid grid-cols-2 opacity-40 ">
-			<div className="blur-[100px] h-[15rem] aspect-square bg-gradient-to-br from-blue-400 to-purple-400 absolute top-0 -right-10"></div>
-			<div className="blur-[90px] h-[10rem] aspect-square bg-gradient-to-r from-cyan-400 to-sky-300 absolute -bottom-10 -left-10"></div>
-		</div>
-	);
-}
-
 interface PostProps extends React.HTMLProps<HTMLDivElement> {
 	orientation?: 'horizontal' | 'vertical';
 	post: Post;

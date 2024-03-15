@@ -1,46 +1,11 @@
 /* The code block */
 [data-rehype-pretty-code-figure] {
-	@apply grid min-w-full bg-slate-800 p-3 text-sm rounded-md overflow-x-scroll mb-5;
+	@apply grid min-w-full mb-5;
 	counter-reset: line;
 	box-decoration-break: clone;
 }
 
 /* The code */
 [data-rehype-pretty-code-figure] pre {
-	@apply !bg-transparent;
-}
-
-/* Code line */
-[data-rehype-pretty-code-figure] .line {
-	@apply px-2 py-1;
-}
-
-/* Line numbers */
-[data-rehype-pretty-code-figure] [data-line-numbers] > .line::before {
-	counter-increment: line;
-	content: counter(line);
-	display: inline-block;
-	width: 1rem;
-	margin-right: 1rem;
-	text-align: right;
-	color: gray;
-}
-
-/* Highlighted line */
-[data-rehype-pretty-code-figure] .line--highlighted {
-	@apply bg-slate-300 bg-opacity-10;
-}
-
-[data-rehype-pretty-code-figure] .line-highlighted span {
-	@apply relative;
-}
-
-/* Highlited word */
-[data-rehype-pretty-code-figure] .word--highlighted {
-	@apply rounded-md bg-slate-300 bg-opacity-10 p-1;
-}
-
-/* Title */
-[data-rehype-pretty-code-title] {
-	@apply mt-4 py-2 px-4 text-sm font-medium text-slate-900;
+	@apply p-4 overflow-x-scroll rounded-md;
 }

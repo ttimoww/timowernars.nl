@@ -75,7 +75,7 @@ var Project = defineDocumentType(() => ({
   }
 }));
 var rehypPrettyCodeOptions = {
-  theme: "one-dark-pro",
+  theme: "github-dark",
   onVisitLine(node) {
     if (node.children.length === 0) {
       node.children = [{ type: "text", value: " " }];
@@ -98,4 +98,4 @@ var contentlayer_config_default = makeSource({
 export {
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-XNY24KJC.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-B3VRMRLS.mjs.map
