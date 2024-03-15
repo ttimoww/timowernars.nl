@@ -23,7 +23,7 @@ import {
 	DrawerTrigger
 } from '@/components/ui/drawer';
 
-export function DrawerDialogDemo() {
+export function ContactInfo() {
 	const [open, setOpen] = React.useState(false);
 	const isDesktop = useMediaQuery('(min-width: 768px)');
 
@@ -51,7 +51,9 @@ export function DrawerDialogDemo() {
 	return (
 		<Drawer open={open} onOpenChange={setOpen}>
 			<DrawerTrigger asChild>
-				<Button variant="outline">Edit Profile</Button>
+				<Button className="px-7" size="sm">
+					Contact
+				</Button>
 			</DrawerTrigger>
 			<DrawerContent>
 				<DrawerHeader className="text-left">

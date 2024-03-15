@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { cn } from '@/lib/utils';
-import { DrawerDialogDemo } from '@/components/header/contact-info';
+import { ContactInfo } from '@/components/header/contact-info';
 
 interface GetInTouchProps extends React.HTMLAttributes<HTMLDivElement> {}
 export function GetInTouch({ className, ...props }: GetInTouchProps) {
@@ -17,7 +17,7 @@ export function GetInTouch({ className, ...props }: GetInTouchProps) {
 			</div>
 			<span className="text-sm text-white mr-3 hidden md:block">Lets get in touch</span>
 			<span className="text-sm text-white md:hidden">Get in touch</span>
-			<DrawerDialogDemo />
+			<ContactInfo />
 		</div>
 	);
 }
