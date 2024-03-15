@@ -48,12 +48,13 @@ export function WavyBackground({
 		ctx = canvas.getContext('2d');
 		w = ctx.canvas.width = window.innerWidth;
 		h = ctx.canvas.height = window.innerHeight;
-		ctx.filter = `blur(${blur}px)`;
+		// ctx.filter = `blur(${blur}px)`;
 		nt = 0;
+
 		window.onresize = function () {
 			w = ctx.canvas.width = window.innerWidth;
 			h = ctx.canvas.height = window.innerHeight;
-			ctx.filter = `blur(${blur}px)`;
+			// ctx.filter = `blur(${blur}px)`;
 		};
 		render();
 	};
@@ -76,7 +77,7 @@ export function WavyBackground({
 
 	let animationId: number;
 	const render = () => {
-		ctx.fillStyle = backgroundFill || '#070b17';
+		ctx.fillStyle = backgroundFill || '#0f172a';
 		ctx.globalAlpha = waveOpacity || 0.5;
 		ctx.fillRect(0, 0, w, h);
 		drawWave(5);
@@ -102,7 +103,7 @@ export function WavyBackground({
 	return (
 		<div className={cn('h-svh flex flex-col items-center justify-center', containerClassName)}>
 			<canvas
-				className="absolute inset-0 z-0"
+				className="absolute inset-0 -z-10"
 				ref={canvasRef}
 				id="canvas"
 				style={{

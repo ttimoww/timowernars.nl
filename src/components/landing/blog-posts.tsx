@@ -1,3 +1,4 @@
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Post, allPosts } from 'contentlayer/generated';
@@ -5,17 +6,13 @@ import { format } from 'date-fns';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { TextReveal } from '@/components/ui/text-reveal';
 
 export function BlogPosts() {
 	return (
 		<section className="container relative">
-			<Gradients />
-			<TextReveal
-				className="w-full md:w-fit"
-				text="I like writing about cool stuff"
-				revealText="(But I prefer writing code)"
-			/>
+			<h2 className="text-[2rem] sm:text-[3rem] text-slate-200 py-5 font-bold tracking-tight">
+				I like to write about cool stuff
+			</h2>
 			<div className="grid md:grid-cols-3 gap-6">
 				{allPosts.map((post, i) => (
 					<BlogPost
@@ -36,8 +33,8 @@ export function BlogPosts() {
 function Gradients() {
 	return (
 		<div aria-hidden="true" className="absolute inset-0 grid grid-cols-2 opacity-40 ">
-			<div className="blur-[100px] h-[15rem] aspect-square bg-gradient-to-br from-blue-400 to-purple-400 absolute top-0 right-0"></div>
-			<div className="blur-[70px] h-[10rem] aspect-square bg-gradient-to-r from-cyan-400 to-sky-300 absolute -bottom-10 -left-5"></div>
+			<div className="blur-[100px] h-[15rem] aspect-square bg-gradient-to-br from-blue-400 to-purple-400 absolute top-0 -right-10"></div>
+			<div className="blur-[90px] h-[10rem] aspect-square bg-gradient-to-r from-cyan-400 to-sky-300 absolute -bottom-10 -left-10"></div>
 		</div>
 	);
 }
@@ -68,18 +65,18 @@ function BlogPost({ post, orientation = 'vertical', className, ...props }: PostP
 					<div className="flex gap-4 h-5 text-sm">
 						<Badge variant="secondary">Next.js</Badge>
 						<Separator orientation="vertical" />
-						<span className="text-zinc-500">{format(post.date, 'MMMM d, yyyy')}</span>
+						<span className="text-slate-500">{format(post.date, 'MMMM d, yyyy')}</span>
 					</div>
 
-					<h2 className="text-xl font-medium mb-auto">{post.title}</h2>
+					<h2 className="text-xl font-medium mb-auto text-slate-200">{post.title}</h2>
 
 					<div className="space-y-3">
 						<Separator orientation="horizontal" />
 						<div className="flex gap-4">
 							<Image src="/timo.png" alt="" width={35} height={35} className="rounded-full" />
 							<div>
-								<p className="text-sm">Timo Wernars</p>
-								<p className="text-xs text-zinc-500">Frontend Developer</p>
+								<p className="text-sm text-slate-200">Timo Wernars</p>
+								<p className="text-xs text-slate-500">Frontend Developer</p>
 							</div>
 						</div>
 					</div>

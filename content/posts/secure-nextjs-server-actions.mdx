@@ -61,6 +61,8 @@ import * as z from 'zod';
 
 // server-action.ts
 
+// server-action.ts
+
 // 1. Create the Validation Schema
 const myServerActionSchema = z.object({
 	name: z.string().min(4)
@@ -87,6 +89,8 @@ To use your server action and check for validation errors we can simply call our
 import { useState } from 'react';
 import { isValidationError } from 'next-server-action-validation';
 import { myServerAction } from '@/app/page.actions';
+
+// page.tsx
 
 // page.tsx
 
