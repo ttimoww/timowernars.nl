@@ -5,66 +5,34 @@ import { createNoise3D } from 'simplex-noise';
 import { cn } from '@/lib/utils';
 
 interface WavyBackgroundProps extends React.HTMLProps<HTMLDivElement> {
-	children?: any;
-	className?: string;
-	containerClassName?: string;
-	colors?: string[];
-	waveWidth?: number;
-	backgroundFill?: string;
-	blur?: number;
-	speed?: 'slow' | 'fast';
-	waveOpacity?: number;
-	[key: string]: any;
+	children: React.ReactNode;
 }
 
-export function WavyBackground({
-	children,
-	className,
-	containerClassName,
-	colors,
-	waveWidth,
-	backgroundFill,
-	blur = 10,
-	speed = 'fast',
-	waveOpacity = 0.5,
-	...props
-}: WavyBackgroundProps) {
+export function WavyBackground({ children, className, ...props }: WavyBackgroundProps) {
 	const noise = createNoise3D();
 	let w: number, h: number, nt: number, i: number, x: number, ctx: any, canvas: any;
 	const canvasRef = useRef<HTMLCanvasElement>(null);
-	const getSpeed = () => {
-		switch (speed) {
-			case 'slow':
-				return 0.001;
-			case 'fast':
-				return 0.002;
-			default:
-				return 0.001;
-		}
-	};
 
 	const init = () => {
 		canvas = canvasRef.current;
 		ctx = canvas.getContext('2d');
 		w = ctx.canvas.width = window.innerWidth;
 		h = ctx.canvas.height = window.innerHeight;
-		// ctx.filter = `blur(${blur}px)`;
 		nt = 0;
 
 		window.onresize = function () {
 			w = ctx.canvas.width = window.innerWidth;
 			h = ctx.canvas.height = window.innerHeight;
-			// ctx.filter = `blur(${blur}px)`;
 		};
 		render();
 	};
 
-	const waveColors = colors ?? ['#38bdf8', '#818cf8', '#c084fc', '#e879f9', '#22d3ee'];
+	const waveColors = ['#38bdf8', '#818cf8', '#c084fc', '#e879f9', '#22d3ee'];
 	const drawWave = (n: number) => {
-		nt += getSpeed();
+		nt += 0.001;
 		for (i = 0; i < n; i++) {
 			ctx.beginPath();
-			ctx.lineWidth = waveWidth || 50;
+			ctx.lineWidth = 50;
 			ctx.strokeStyle = waveColors[i % waveColors.length];
 			for (x = 0; x < w; x += 5) {
 				var y = noise(x / 800, 0.3 * i, nt) * 100;
@@ -77,8 +45,8 @@ export function WavyBackground({
 
 	let animationId: number;
 	const render = () => {
-		ctx.fillStyle = backgroundFill || '#0f172a';
-		ctx.globalAlpha = waveOpacity || 0.5;
+		ctx.fillStyle = '#0f172a';
+		ctx.globalAlpha = 0.5;
 		ctx.fillRect(0, 0, w, h);
 		drawWave(5);
 		animationId = requestAnimationFrame(render);
@@ -101,7 +69,7 @@ export function WavyBackground({
 	}, []);
 
 	return (
-		<div className={cn('h-svh flex flex-col items-center justify-center', containerClassName)}>
+		<div className={cn('h-svh flex flex-col items-center justify-center')}>
 			<canvas
 				className="absolute inset-0 -z-10"
 				ref={canvasRef}

@@ -39,7 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				<Header />
 				{children}
 				<TracingBlob />
-				<div className="fixed inset-0 backdrop-blur-[7px] -z-10"></div>
+				<div className="fixed inset-0 backdrop-blur-[10px] -z-10" />
 			</body>
 		</html>
 	);
