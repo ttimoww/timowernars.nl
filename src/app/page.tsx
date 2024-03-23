@@ -9,8 +9,10 @@ export default function Home() {
 			<WavyBackground>
 				<Introduction />
 			</WavyBackground>
-			<Stack />
-			<BlogPosts />
+			<div className="space-y-40">
+				<Stack />
+				<BlogPosts />
+			</div>
 		</main>
 	);
 }

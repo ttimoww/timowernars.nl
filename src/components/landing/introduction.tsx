@@ -11,7 +11,8 @@ export function Introduction() {
 						<span className="block">WEB DEVELOPER</span>
 						<span className="block">SPECIALIZING IN</span>
 						<span className="block ">
-							<Underline>REACT</Underline> & <Underline>NEXT JS</Underline>
+							<Underline className="pb-2">REACT</Underline> &{' '}
+							<Underline className="pb-2">NEXT JS</Underline>
 						</span>
 					</h1>
 				</div>

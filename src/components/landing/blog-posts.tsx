@@ -6,8 +6,17 @@ import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import { Underline } from '@/components/ui/underline';
 
 export function BlogPosts() {
+	return (
+		<section className="container">
+			<h2 className="text-slate-200 text-4xl md:text-6xl font-bold relative w-fit">
+				I write, <Underline className="pb-4">sometimes</Underline>
+			</h2>
+		</section>
+	);
+
 	return (
 		<section className="container relative">
 			<h2 className="text-[2rem] sm:text-[3rem] text-slate-200 py-5 font-bold">I write, sometimes</h2>

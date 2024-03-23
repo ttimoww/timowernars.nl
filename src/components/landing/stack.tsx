@@ -2,13 +2,13 @@ import { Underline } from '@/components/ui/underline';
 
 export function Stack() {
 	return (
-		<section className="container py-10">
+		<section className="container">
 			<div className="flex flex-col gap-14">
 				<div className="relative">
 					<X />
 					<div className="space-y-3 max-w-[450px]">
 						<h2 className="text-slate-200 text-4xl md:text-6xl font-bold relative w-fit">
-							<Underline>Frontend</Underline>
+							<Underline className="pb-2.5">Frontend</Underline>
 						</h2>
 
 						<p className="">
@@ -24,7 +24,7 @@ export function Stack() {
 					<Y />
 					<div className="space-y-3 max-w-[450px] md:ml-auto">
 						<h2 className="text-slate-200 text-4xl md:text-5xl font-bold relative w-fit">
-							<Underline>Backend</Underline>
+							<Underline className="pb-2.5">Backend</Underline>
 						</h2>
 						<p className="">
 							While I&apos;m most comfortable on the client-side of things, I&apos;m also very familiar
