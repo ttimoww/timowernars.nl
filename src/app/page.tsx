@@ -10,6 +10,9 @@ export default function Home() {
 			<WavyBackground>
 				<Introduction />
 			</WavyBackground>
+			<section className="container grid gap-4">
+				<div className="w-[200px] aspect-square bg-slate-800/90 rounded-lg"></div>
+			</section>
 			<BlogPosts />
 		</main>
 	);

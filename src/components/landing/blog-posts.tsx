@@ -13,16 +13,16 @@ export function BlogPosts() {
 			<h2 className="text-[2rem] sm:text-[3rem] text-slate-200 py-5 font-bold tracking-tight">
 				I like to write about cool stuff
 			</h2>
-			<div className="grid md:grid-cols-3 gap-6">
+			<div className="grid md:grid-cols-2 gap-6">
 				{allPosts.map((post, i) => (
 					<BlogPost
 						key={i}
 						post={post}
-						orientation={i === 0 ? 'horizontal' : 'vertical'}
-						className={cn({
-							'md:row-span-2 md:col-span-1': i === 0,
-							'md:col-span-2': i !== 0
-						})}
+						// orientation={i === 0 ? 'horizontal' : 'vertical'}
+						// className={cn({
+						// 	'md:row-span-2 md:col-span-1': i === 0,
+						// 	'md:col-span-2': i !== 0
+						// })}
 					/>
 				))}
 			</div>
@@ -36,13 +36,7 @@ interface PostProps extends React.HTMLProps<HTMLDivElement> {
 }
 function BlogPost({ post, orientation = 'vertical', className, ...props }: PostProps) {
 	return (
-		<article
-			className={cn(
-				'border rounded-2xl overflow-hidden bg-zinc-900/50 backdrop-blur-lg grid grid-cols-1',
-				className
-			)}
-			{...props}
-		>
+		<article className={cn('rounded-2xl overflow-hidden bg-slate-800/60 grid grid-cols-1', className)} {...props}>
 			<Link href={`/blog/${post.slug}`}>
 				<div
 					className={cn('bg-green-100 relative overflow-hidden h-44  hidden md:block', {
@@ -63,13 +57,14 @@ function BlogPost({ post, orientation = 'vertical', className, ...props }: PostP
 
 					<div className="space-y-3">
 						<Separator orientation="horizontal" />
-						<div className="flex gap-4">
+						<p className="text-slate-500 text-sm">{post.description}</p>
+						{/* <div className="flex gap-4">
 							<Image src="/timo.png" alt="" width={35} height={35} className="rounded-full" />
 							<div>
 								<p className="text-sm text-slate-200">Timo Wernars</p>
 								<p className="text-xs text-slate-500">Frontend Developer</p>
 							</div>
-						</div>
+						</div> */}
 					</div>
 				</div>
 			</Link>
