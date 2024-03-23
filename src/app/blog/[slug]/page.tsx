@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation';
 import { Post, allPosts } from 'contentlayer/generated';
 import { format } from 'date-fns';
 import { Author } from '@/components/blog-page/author';
-import { Heading } from '@/components/ui/heading';
 import { Mdx } from '@/components/ui/mdx';
 import { Separator } from '@/components/ui/separator';
 import '@/styles/mdx.css';
@@ -69,9 +68,7 @@ export default function PostPage({ params }: PostPageProps) {
 		<div className="pt-32">
 			<main className="container max-w-3xl relative px-6">
 				<p className="text-sm text-slate-500">Pusblished on {format(new Date(post.date), 'MMMM d, yyyy')}</p>
-				<Heading as="h1" className="text-5xl md:text-6xl lg:text-7xl ">
-					{post.title}
-				</Heading>
+				<h1 className="text-slate-200 font-bold my-3 text-5xl md:text-6xl lg:text-7xl ">{post.title}</h1>
 				<div className="flex justify-between items-end">
 					<Author />
 					<p className="text-sm text-slate-500">5 minute read</p>

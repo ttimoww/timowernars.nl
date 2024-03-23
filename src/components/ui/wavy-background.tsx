@@ -69,7 +69,7 @@ export function WavyBackground({ children, className, ...props }: WavyBackground
 	}, []);
 
 	return (
-		<div className={cn('h-svh flex flex-col items-center justify-center')}>
+		<div className={cn('md:h-svh flex flex-col items-center justify-center')}>
 			<canvas
 				className="absolute inset-0 -z-10"
 				ref={canvasRef}

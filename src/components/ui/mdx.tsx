@@ -5,7 +5,7 @@ const components = {
 	h2: ({ ...props }) => <h2 className="text-2xl font-bold text-slate-200 mb-2">{props.children}</h2>,
 	h3: ({ ...props }) => <h3 className="text-xl font-bold text-slate-200 mb-2">{props.children}</h3>,
 	h4: ({ ...props }) => <h3 className="text-lg font-bold text-slate-200 mb-2">{props.children}</h3>,
-	p: ({ ...props }) => <p className="leading-7 mb-4">{props.children}</p>,
+	p: ({ ...props }) => <p className="leading-8 mb-4">{props.children}</p>,
 	a: ({ ...props }) => <p className="font-medium text-slate-200 hover:text-teal-300">{props.children}</p>,
 	strong: ({ ...props }) => <p className="font-medium text-slate-200 inline">{props.children}</p>,
 	code: ({ ...props }) => <code className="text-sm">{props.children}</code>,
