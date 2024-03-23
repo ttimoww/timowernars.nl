@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 
-export default function TracingBlob() {
+export function TracingBlob() {
 	const blobRef = useRef<HTMLDivElement>(null);
 
 	const handlePointerMove = (e: any) => {

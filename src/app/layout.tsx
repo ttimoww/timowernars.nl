@@ -1,7 +1,8 @@
 import { Antonio, Inter, Roboto } from 'next/font/google';
 import { cn } from '@/lib/utils';
+import { Footer } from '@/components/footer/footer';
 import { Header } from '@/components/header/header';
-import TracingBlob from '@/components/ui/tracing-blob';
+import { TracingBlob } from '@/components/ui/tracing-blob';
 import '@/styles/globals.css';
 import '@/styles/mdx.css';
 
@@ -38,6 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 			<body>
 				<Header />
 				{children}
+				<Footer />
 				<TracingBlob />
 				<div className="fixed inset-0 backdrop-blur-[10px] -z-10" />
 			</body>
