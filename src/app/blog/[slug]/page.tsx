@@ -66,7 +66,7 @@ export default function PostPage({ params }: PostPageProps) {
 
 	return (
 		<div className="pt-32">
-			<main className="container max-w-3xl relative px-6">
+			<main className="container max-w-3xl relative">
 				<p className="text-sm text-slate-500">Pusblished on {format(new Date(post.date), 'MMMM d, yyyy')}</p>
 				<h1 className="text-slate-200 font-bold my-3 text-5xl md:text-6xl lg:text-7xl ">{post.title}</h1>
 				<div className="flex justify-between items-end">

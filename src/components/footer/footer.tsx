@@ -4,7 +4,7 @@ import { Underline } from '@/components/ui/underline';
 
 export function Footer() {
 	return (
-		<footer className="relative pt-24 pb-52 z-20">
+		<footer className="relative pt-24 pb-36 md:pb-52 z-20">
 			<div className="container">
 				<h1 className="text-slate-200 text-4xl font-bold relative w-fit mb-8">
 					<Underline className="pb-4">Say hello</Underline>
