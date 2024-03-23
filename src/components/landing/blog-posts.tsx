@@ -14,6 +14,19 @@ export function BlogPosts() {
 			<h2 className="text-slate-200 text-4xl md:text-6xl font-bold relative w-fit">
 				I write, <Underline className="pb-4">sometimes</Underline>
 			</h2>
+			<div className="grid md:grid-cols-2 gap-6">
+				{allPosts.map((post, i) => (
+					<BlogPost
+						key={i}
+						post={post}
+						// orientation={i === 0 ? 'horizontal' : 'vertical'}
+						// className={cn({
+						// 	'md:row-span-2 md:col-span-1': i === 0,
+						// 	'md:col-span-2': i !== 0
+						// })}
+					/>
+				))}
+			</div>
 		</section>
 	);
 

@@ -1,3 +1,4 @@
+import { Icons } from '@/components/ui/icons';
 import { Underline } from '@/components/ui/underline';
 
 export function Stack() {
@@ -13,11 +14,18 @@ export function Stack() {
 
 						<p className="">
 							I love to build performant and accessible web applications using{' '}
-							<span className="text-[#FAA1D0] font-medium">React.js</span>. To make sure sure they look
+							<span className="text-[#FAA1D0] font-medium">React.js</span> and{' '}
+							<span className="text-[#FAA1D0] font-medium">Typescript</span>. To make sure sure they look
 							good, I style them with <span className="text-[#FAA1D0] font-medium">TailwindCSS</span>. For
 							a more fullstack experience, my absolute go-to is{' '}
 							<span className="text-[#FAA1D0] font-medium">Next.js</span>.
 						</p>
+						<div className="flex gap-3">
+							<Icons.reactjs className="size-6" />
+							<Icons.typescript className="size-6" />
+							<Icons.tailwindcss className="size-6" />
+							<Icons.nextjs className="size-6" />
+						</div>
 					</div>
 				</div>
 				<div className="relative">
@@ -34,6 +42,11 @@ export function Stack() {
 							<span className="text-[#FAA1D0] font-medium">Postgres</span> and{' '}
 							<span className="text-[#FAA1D0] font-medium">TypeORM</span>.
 						</p>
+						<div className="flex gap-3">
+							<Icons.nodejs className="size-6" />
+							<Icons.nestjs className="size-6" />
+							<Icons.postgress className="size-6" />
+						</div>
 					</div>
 				</div>
 			</div>
