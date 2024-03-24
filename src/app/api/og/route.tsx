@@ -22,8 +22,8 @@ export async function GET(req: NextRequest) {
 				<div tw="flex flex-col justify-center pt-10">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
-						width="300"
-						height="120"
+						width="430"
+						height="198"
 						// @ts-ignore
 						tw="absolute right-0 -top-10"
 					>

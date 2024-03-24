@@ -40,12 +40,14 @@ export function Stack() {
 							application I think <span className="text-[#FAA1D0] font-medium">Nest.js</span> is a great
 							way to build modular applications. Persisting data? Let&apos;s go for{' '}
 							<span className="text-[#FAA1D0] font-medium">Postgres</span> and{' '}
-							<span className="text-[#FAA1D0] font-medium">TypeORM</span>.
+							<span className="text-[#FAA1D0] font-medium">TypeORM</span> or{' '}
+							<span className="text-[#FAA1D0] font-medium">Prisma</span>.
 						</p>
 						<div className="flex gap-3">
 							<Icons.nodejs className="size-6" />
 							<Icons.nestjs className="size-6" />
 							<Icons.postgress className="size-6" />
+							<Icons.prisma className="size-6" />
 						</div>
 					</div>
 				</div>
@@ -71,8 +73,8 @@ const X = () => (
 		<path
 			fill="none"
 			stroke="#FAA1D0"
-			stroke-miterlimit="50"
-			stroke-width="2"
+			strokeMiterlimit="50"
+			strokeWidth="2"
 			d="M16.753 9.614a7.891 7.891 0 11-15.782 0 7.891 7.891 0 0115.782 0zM44.822 9.614a7.892 7.892 0 11-15.784-.002 7.892 7.892 0 0115.784.002zM72.89 9.614a7.891 7.891 0 11-15.782 0 7.891 7.891 0 0115.783 0zM100.96 9.614a7.892 7.892 0 11-15.783-.002 7.892 7.892 0 0115.783.002zM129.028 9.614a7.891 7.891 0 11-15.782 0 7.891 7.891 0 0115.782 0z"
 		></path>
 	</svg>
@@ -91,8 +93,8 @@ const Y = () => (
 		<path
 			fill="none"
 			stroke="#FAA1D0"
-			stroke-miterlimit="50"
-			stroke-width="2"
+			strokeMiterlimit="50"
+			strokeWidth="2"
 			d="M17.053 9.57a7.891 7.891 0 11-15.782 0 7.891 7.891 0 0115.782 0zM45.122 9.57a7.891 7.891 0 11-15.782 0 7.891 7.891 0 0115.782 0zM73.19 9.57a7.891 7.891 0 11-15.781 0 7.891 7.891 0 0115.782 0zM101.26 9.57a7.891 7.891 0 11-15.782 0 7.891 7.891 0 0115.782 0zM129.329 9.57a7.891 7.891 0 11-15.783 0 7.891 7.891 0 0115.783 0zM238.083 103.963v0l-.561 22.259v0l22.259-.561v0l-.561 22.258v0l22.259-.56v0l-.561 22.258v0l22.259-.56v0l-.559 22.26v0l22.26-.56v0"
 		></path>
 	</svg>
