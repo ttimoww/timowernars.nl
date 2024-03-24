@@ -37,7 +37,7 @@ export async function GET(req: NextRequest) {
 							d="M16.753 9.614a7.891 7.891 0 11-15.782 0 7.891 7.891 0 0115.782 0zM44.822 9.614a7.892 7.892 0 11-15.784-.002 7.892 7.892 0 0115.784.002zM72.89 9.614a7.891 7.891 0 11-15.782 0 7.891 7.891 0 0115.783 0zM100.96 9.614a7.892 7.892 0 11-15.783-.002 7.892 7.892 0 0115.783.002zM129.028 9.614a7.891 7.891 0 11-15.782 0 7.891 7.891 0 0115.782 0z"
 						/>
 					</svg>
-					<p tw="text-slate-400 m-0 mb-2">
+					<p tw="text-xl  text-slate-400 m-0 mb-2">
 						<span tw="text-[#FAA1D0] mr-1">{tag}</span> - {date}
 					</p>
 					<h2 tw="text-6xl font-bold text-slate-200 m-0 mb-2" style={{ fontFamily: '"InterBold"' }}>
@@ -45,14 +45,16 @@ export async function GET(req: NextRequest) {
 					</h2>
 					<div tw="flex">
 						<img
-							width="70"
-							height="70"
+							width="100"
+							height="100"
 							src="https://www.timowernars.nl/_next/image?url=%2Fimages%2Ftimo-pink.png&w=128&q=75"
-							tw="rounded-full border-2 border-white mr-2"
+							tw="rounded-full border-4 border-white mr-2"
 						/>
 						<div tw="flex flex-col justify-center">
-							<p tw="text-slate-200 m-0">Timo Wernars</p>
-							<p tw="text-slate-400 m-0">5 minute read</p>
+							<p tw="text-xl text-slate-200 m-0" style={{ fontFamily: '"InterBold"' }}>
+								Timo Wernars
+							</p>
+							<p tw="text-xl text-slate-400 m-0">5 minute read</p>
 						</div>
 					</div>
 				</div>
