@@ -27,9 +27,6 @@ export async function GET(req: NextRequest) {
 						xmlns="http://www.w3.org/2000/svg"
 						width="300"
 						height="120"
-						viewBox="0 0 523 214"
-						data-shape="true"
-						aria-hidden="true"
 						// @ts-ignore
 						tw="absolute right-0 -top-10"
 					>
@@ -40,18 +37,13 @@ export async function GET(req: NextRequest) {
 						<path
 							fill="none"
 							stroke="#FAA1D0"
-							stroke-miterlimit="50"
-							stroke-width="2"
 							d="M16.753 9.614a7.891 7.891 0 11-15.782 0 7.891 7.891 0 0115.782 0zM44.822 9.614a7.892 7.892 0 11-15.784-.002 7.892 7.892 0 0115.784.002zM72.89 9.614a7.891 7.891 0 11-15.782 0 7.891 7.891 0 0115.783 0zM100.96 9.614a7.892 7.892 0 11-15.783-.002 7.892 7.892 0 0115.783.002zM129.028 9.614a7.891 7.891 0 11-15.782 0 7.891 7.891 0 0115.782 0z"
 						/>
 					</svg>
 					<p tw="text-sm text-slate-400 m-0 mb-2">
 						<span tw="text-[#FAA1D0] mr-1">{tag}</span> - {date}
 					</p>
-					<h2
-						tw="text-3xl sm:text-4xl font-bold text-slate-200 m-0 mb-2"
-						style={{ fontFamily: '"InterBold"' }}
-					>
+					<h2 tw="text-4xl font-bold text-slate-200 m-0 mb-2" style={{ fontFamily: '"InterBold"' }}>
 						{title}
 					</h2>
 					<div tw="flex">
