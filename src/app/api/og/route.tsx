@@ -19,7 +19,7 @@ export async function GET(req: NextRequest) {
 				tw="flex flex-col w-full h-full items-center justify-center bg-slate-900 relative px-10"
 				style={{ fontFamily: '"InterRegular"' }}
 			>
-				<div tw="flex flex-col justify-center">
+				<div tw="flex flex-col justify-center pt-10">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						width="300"
@@ -37,24 +37,24 @@ export async function GET(req: NextRequest) {
 							d="M16.753 9.614a7.891 7.891 0 11-15.782 0 7.891 7.891 0 0115.782 0zM44.822 9.614a7.892 7.892 0 11-15.784-.002 7.892 7.892 0 0115.784.002zM72.89 9.614a7.891 7.891 0 11-15.782 0 7.891 7.891 0 0115.783 0zM100.96 9.614a7.892 7.892 0 11-15.783-.002 7.892 7.892 0 0115.783.002zM129.028 9.614a7.891 7.891 0 11-15.782 0 7.891 7.891 0 0115.782 0z"
 						/>
 					</svg>
-					<p tw="text-xl  text-slate-400 m-0 mb-2">
+					<p tw="text-2xl  text-slate-400 m-0 mb-4">
 						<span tw="text-[#FAA1D0] mr-1">{tag}</span> - {date}
 					</p>
-					<h2 tw="text-6xl font-bold text-slate-200 m-0 mb-2" style={{ fontFamily: '"InterBold"' }}>
+					<h2 tw="text-6xl font-bold text-slate-200 m-0 mb-4" style={{ fontFamily: '"InterBold"' }}>
 						{title}
 					</h2>
 					<div tw="flex">
 						<img
-							width="100"
-							height="100"
-							src="https://www.timowernars.nl/_next/image?url=%2Fimages%2Ftimo-pink.png&w=128&q=75"
-							tw="rounded-full border-4 border-white mr-2"
+							width="130"
+							height="130"
+							src="https://www.timowernars.nl/_next/image?url=%2Fimages%2Ftimo-pink.png&w=3840&q=75"
+							tw="rounded-full border-4 border-white mr-4"
 						/>
 						<div tw="flex flex-col justify-center">
-							<p tw="text-xl text-slate-200 m-0" style={{ fontFamily: '"InterBold"' }}>
+							<p tw="text-2xl text-slate-200 m-0" style={{ fontFamily: '"InterBold"' }}>
 								Timo Wernars
 							</p>
-							<p tw="text-xl text-slate-400 m-0">5 minute read</p>
+							<p tw="text-2xl text-slate-400 m-0">5 minute read</p>
 						</div>
 					</div>
 				</div>
