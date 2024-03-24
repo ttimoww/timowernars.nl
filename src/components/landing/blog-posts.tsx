@@ -32,7 +32,7 @@ function BlogPost({ post, className, ...props }: PostProps) {
 		<article>
 			<h2 className="text-xl font-medium mb-auto text-slate-200">{post.title}</h2>
 			<p className="p text-sm mb-2 leading-7">
-				<span className="text-[#FAA1D0] font-medium">Next.js</span> - {format(post.date, 'MMMM d, yyyy')}
+				<span className="text-[#FAA1D0] font-medium">{post.tag}</span> - {format(post.date, 'MMMM d, yyyy')}
 			</p>
 			<p>{post.description}</p>
 			<Link className="text-[#FAA1D0] text-sm" href={`/blog/${post.slug}`}>

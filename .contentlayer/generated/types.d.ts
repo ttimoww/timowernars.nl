@@ -19,6 +19,8 @@ export type Post = {
   description: string
   /** The date of the post */
   date: IsoDateTimeString
+  /** The tag of the post */
+  tag: string
   /** MDX file body */
   body: MDX
   slug: string

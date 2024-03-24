@@ -20,6 +20,11 @@ const Post = defineDocumentType(() => ({
 			type: 'date',
 			description: 'The date of the post',
 			required: true
+		},
+		tag: {
+			type: 'string',
+			description: 'The tag of the post',
+			required: true
 		}
 	},
 	computedFields: {

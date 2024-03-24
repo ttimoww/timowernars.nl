@@ -6,8 +6,12 @@ const components = {
 	h3: ({ ...props }) => <h3 className="text-xl font-bold text-slate-200 mb-2">{props.children}</h3>,
 	h4: ({ ...props }) => <h3 className="text-lg font-bold text-slate-200 mb-2">{props.children}</h3>,
 	p: ({ ...props }) => <p className="leading-8 mb-4">{props.children}</p>,
-	a: ({ ...props }) => <p className="font-medium text-slate-200 hover:text-teal-300">{props.children}</p>,
-	strong: ({ ...props }) => <p className="font-medium text-slate-200 inline">{props.children}</p>,
+	a: ({ ...props }) => (
+		<a href={props.href} className="text-[#FAA1D0] inline">
+			{props.children}
+		</a>
+	),
+	strong: ({ ...props }) => <p className="text-slate-200 inline">{props.children}</p>,
 	code: ({ ...props }) => <code className="text-sm">{props.children}</code>,
 	ul: ({ ...props }) => (
 		<ul {...props} className="my-6 ml-6 list-disc [&>li]:mt-2">

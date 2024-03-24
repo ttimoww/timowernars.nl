@@ -1,20 +1,21 @@
 ---
-title: Building Secure NextJS Server Actions
+title: Writing Secure Next.js Server Actions
+tag: Next.js
 date: 2024-02-16
-description: NextJS Server Actions are great, but they lack a crucial aspect of security. Learn how to protect your Server Actions with using next-server-action-validation and read about my motivation behind creating this package.
+description: Next.js Server Actions are great, but they lack a crucial aspect of security. Learn how to protect your Server Actions with using next-server-action-validation and read about my motivation behind creating this package.
 ---
 
-It's not a surprise that I'm a big `Next.js` fan. Especially working with Server Actions is a great experience. However, in my opinion, there's a crucial aspect of security that is way too often overlooked. To contribute my part to the Next.js community, I've created a package called `next-server-action-validation` which aims to solve this problem. In this article, I'll explain the motivation behind creating this package and how to use it to secure your NextJS Server Actions.
+It's not a surprise that I'm a big `Next.js` fan. Especially working with Server Actions is a great experience. However, in my opinion, there's a crucial aspect of security that is way too often overlooked. To contribute my part to the Next.js community, I've created a package called `next-server-action-validation` which aims to solve this problem. In this article, I'll explain the motivation behind creating this package and how to use it to secure your Next.js Server Actions.
 
-## The Birth of NextJS Server Actions
+## The Birth of Next.js Server Actions
 
-Before we dive into the action (see what I did there?), let's take a step back and look at the (short) history of NextJS Server Actions.
+Before we dive into the action (see what I did there?), let's take a step back and look at the (short) history of Next.js Server Actions.
 
-Traditionally, communicating with the server-side in NextJS required creating an API route. However, with the release of [NextJS 13](https://nextjs.org/blog/next-13) in October 2022, Vercel introduced an experimental concept known as '**Server Actions**'.
+Traditionally, communicating with the server-side in Next.js required creating an API route. However, with the release of [Next.js 13](https://next.js.org/blog/next-13) in October 2022, Vercel introduced an experimental concept known as Server Actions.
 
-A year later, in October 2023, the launch of [NextJS 14](https://nextjs.org/blog/next-14) marked Server Actions as a stable feature. The initial reception of Server Actions was not great, resulting in a wave of memes and jokes about how 'ridiculous' the feature was. One particular image from the NextJS 14 presentation was widely circulated.
+A year later, in October 2023, the launch of [Next.js 14](https://next.js.org/blog/next-14) marked Server Actions as a stable feature. The initial reception of Server Actions was not great, resulting in a wave of memes and jokes about how 'ridiculous' the feature was. One particular image from the Next.js 14 presentation was widely circulated.
 
-![Vercel Presentation NextJS Server Actions](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/iik0mluurcpf230xboy9.jpg)
+![Vercel Presentation Next.js Server Actions](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/iik0mluurcpf230xboy9.jpg)
 
 For many developers, the idea of integrating SQL within a ReactJS component seemed absurd. And indeed, from a developer's perspective, I concur. However, I believe the criticism Server Actions received was not entirely justified.
 
@@ -24,7 +25,7 @@ A few months later, I absolutely fell in love with Server Actions. When I need t
 
 ## The Problem With Server Actions
 
-So what's the problem with Server Actions? As I mentioned earlier, the problem a lot of developers overlook is the security of their Server Actions. Since Server Actions are essentially compiled into 'regular' API routes by NextJS, it's crucial to validate all incoming data before it flows into your server side logic.
+So what's the problem with Server Actions? As I mentioned earlier, the problem a lot of developers overlook is the security of their Server Actions. Since Server Actions are essentially compiled into 'regular' API routes by Next.js, it's crucial to validate all incoming data before it flows into your server side logic.
 
 Many developers use [Zod](https://zod.dev/) to validate input data on the front end before sending it to the backend via a Server Action. While this is a good practice, it leaves your Server Actions —or essentially your API routes— still vulnerable to invalid data, allowing bad-actors to directly send any data they wish to the server side of your application.
 
@@ -57,12 +58,6 @@ To protect your server action it needs to be wrapped in the `withValidation` fun
 import { withValidation } from 'next-server-action-validation';
 import * as z from 'zod';
 
-// server-action.ts
-
-// server-action.ts
-
-// server-action.ts
-
 // 1. Create the Validation Schema
 const myServerActionSchema = z.object({
 	name: z.string().min(4)
@@ -89,12 +84,6 @@ To use your server action and check for validation errors we can simply call our
 import { useState } from 'react';
 import { isValidationError } from 'next-server-action-validation';
 import { myServerAction } from '@/app/page.actions';
-
-// page.tsx
-
-// page.tsx
-
-// page.tsx
 
 export default function Home() {
 	const [myString, setMyString] = useState('');
@@ -128,6 +117,6 @@ export default function Home() {
 
 ## Conclusion
 
-In conclusion, `next-server-action-validation` bridges a crucial gap in NextJS Server Actions by securely integrating Zod schema validation directly into server-side processing. This approach not only fortifies your Server Actions against invalid data but also maintains the ease of displaying validation errors on the client side.
+In conclusion, `next-server-action-validation` bridges a crucial gap in Next.js Server Actions by securely integrating Zod schema validation directly into server-side processing. This approach not only fortifies your Server Actions against invalid data but also maintains the ease of displaying validation errors on the client side.
 
-By using this package, you can enhance your NextJS applications' security without sacrificing development speed or violating the DRY principle. It's a step forward in making full-stack development with NextJS more robust and efficient.
+By using this package, you can enhance your Next.js applications' security without sacrificing development speed or violating the DRY principle. It's a step forward in making full-stack development with Next.js more robust and efficient.
