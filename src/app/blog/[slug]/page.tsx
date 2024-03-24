@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Post, allPosts } from 'contentlayer/generated';
 import { format } from 'date-fns';
-import { Author } from '@/components/blog-page/author';
+import { Author } from '@/components/blog/author';
 import { Mdx } from '@/components/ui/mdx';
 import { Separator } from '@/components/ui/separator';
 import { Underline } from '@/components/ui/underline';

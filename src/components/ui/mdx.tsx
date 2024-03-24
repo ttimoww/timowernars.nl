@@ -1,5 +1,13 @@
 import * as React from 'react';
+import { AlertTriangleIcon, CakeIcon, InfoIcon } from 'lucide-react';
 import { useMDXComponent } from 'next-contentlayer/hooks';
+import Alert, {
+	AlertProps,
+	AlertTitleProps,
+	AlertTitle,
+	AlertDescriptionProps,
+	AlertDescription
+} from '@/components/blog/alert';
 
 const components = {
 	h2: ({ ...props }) => <h2 className="text-2xl font-bold text-slate-200 mb-2">{props.children}</h2>,
@@ -20,7 +28,13 @@ const components = {
 	),
 	ol: ({ ...props }) => <ol {...props}>{props.children}</ol>,
 	li: ({ ...props }) => <li {...props}>{props.children}</li>,
-	img: ({ ...props }) => <img className="mx-auto" {...props} />
+	img: ({ ...props }) => <img className="mx-auto" {...props} />,
+	Alert: ({ ...props }: AlertProps) => <Alert {...props} />,
+	AlertTitle: ({ ...props }: AlertTitleProps) => <AlertTitle {...props} />,
+	AlertDescription: ({ ...props }: AlertDescriptionProps) => <AlertDescription {...props} />,
+	InformationCircleIcon: ({ ...props }) => <InfoIcon className="w-5 h-5" {...props} />,
+	ExclamationTriangleIcon: ({ ...props }) => <AlertTriangleIcon className="w-5 h-5" {...props} />,
+	CakeIcon: ({ ...props }) => <CakeIcon className="w-5 h-5" {...props} />
 };
 
 interface MdxProps {

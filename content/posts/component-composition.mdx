@@ -7,6 +7,18 @@ description: A quick look at how we can use component composition to create more
 
 I do not have to tell you that React.js is all about reusability. By creating components, we can reuse the same code to render identical pieces of HTML in different parts of our application. A very common use case of a component that needs to be rendered in different places of an application is an `Alert` component. Based on the context of the alert, it might need to be styled differently, have different text, or a different icon. Implementing such a component can be done in multiple ways. In this article, I will quickly discuss one "bad" implementation and show you how to improve it by using component composition.
 
+<Alert type="success" style={{ marginBottom: "1rem" }}>
+<InformationCircleIcon />
+<AlertTitle>Success!</AlertTitle>
+<AlertDescription>You have successfully logged in.</AlertDescription>
+</Alert>
+
+<Alert type="error" style={{ marginBottom: "1rem" }}>
+<ExclamationTriangleIcon />
+<AlertTitle>Error!</AlertTitle>
+<AlertDescription>Something went wrong.</AlertDescription>
+</Alert>
+
 ## A simple implementation (the bad way)
 
 Let's look at the example Alerts above. If we deconstruct these alerts, we can see that they consist of a few parts: an icon, a title, a description, and a color (success or error).
@@ -14,7 +26,12 @@ Let's look at the example Alerts above. If we deconstruct these alerts, we can s
 If we were to implement this component, we could simply receive a set of props that would determine the content and styling of the alert. For example:
 
 ```jsx
-<Alert type="success" title="Success!" message="You have successfully logged in." icon="info" />
+<Alert 
+	type="success" 
+	title="Success!" 	
+	message="You have successfully logged in." 
+	icon="info"
+/>
 ```
 
 Implementing the `Alert` component like this is perfectly valid React.js code. **But**, there are some improvements to be made. Let's ask ourselves the following questions:
@@ -47,6 +64,12 @@ Let's improve our component by using component composition. Component compositio
 </Alert>
 ```
 
+<Alert type="success" style={{ marginBottom: "1rem" }}>
+    <InformationCircleIcon />
+    <AlertTitle>Component Composition!</AlertTitle>
+    <AlertDescription>Now I'm super flexible.</AlertDescription>
+</Alert>
+
 Looking at the code above, we can see that we created two new individual small components that are rendered inside the `Alert` component (HOC):
 
 -   `Alert.Title`
@@ -64,6 +87,12 @@ Another big advantage of this approach is that we can easily extend (or modify) 
 </Alert>
 ```
 
+<Alert type="success" style={{ marginBottom: "1rem" }}>
+    <CakeIcon />
+    <AlertTitle>New Icon!</AlertTitle>
+    <AlertDescription>Who doesn't like cake?</AlertDescription>
+</Alert>
+
 Lets look at another example. What if we want the description of the alert to contain a link and be displayed above the title. In this case we can simply add an anchor tag inside of the `Alert.Description` component and move it above the `Alert.Title` component.
 
 ```jsx
@@ -75,6 +104,12 @@ Lets look at another example. What if we want the description of the alert to co
 	<Alert.Title>New Icon!</Alert.Title>
 </Alert>
 ```
+
+<Alert type="success" style={{ marginBottom: "1rem" }}>
+    <CakeIcon />
+    <AlertDescription>I'm on top now with a <a href="#" style={{ textDecoration: 'underline'}}>link</a></AlertDescription>
+    <AlertTitle>New Icon!</AlertTitle>
+</Alert>
 
 ## The full implementation
 
@@ -89,10 +124,10 @@ function Alert({ type, children, className, ...props }: AlertProps) {
 	return (
 		<div
 			className={cn(
-				'relative w-full rounded-lg border p-4 [&>svg~*]:pl-7 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:text-foreground',
+				'relative w-full rounded-lg border-l-4 p-4 [&>svg~*]:pl-9 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:size-4',
 				{
-					'border-green-300 bg-green-50 text-green-800 ': type === 'success',
-					'bg-red-50 text-red-800 border border-red-300': type === 'error',
+					'border-green-500 bg-green-800/40 text-green-50 [&>svg]:text-green-500': type === 'success',
+					'border-red-500 bg-red-800/40 text-red-50 [&>svg]:text-red-400': type === 'error',
 					className
 				}
 			)}
