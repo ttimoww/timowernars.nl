@@ -27,8 +27,14 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
 	const post = findPostBySlug(params.slug);
 	if (!post) return {};
 
-	const ogUrl = 'https://tymo.so/api/og?title=' + encodeURI(post.title);
-	const postUrl = 'https://tymo.so/blog/' + post.slug;
+	const ogUrl =
+		'https://timowernars.nl/api/og?title=' +
+		encodeURI(post.title) +
+		'&tag=' +
+		encodeURI(post.tag) +
+		'&date=' +
+		encodeURI(format(post.date, 'MMMM d, yyyy'));
+	const postUrl = 'https://timowernars.nl/blog/' + post.slug;
 
 	return {
 		title: post.title,
