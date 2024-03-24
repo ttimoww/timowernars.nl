@@ -1,15 +1,12 @@
 import { NextRequest } from 'next/server';
 import { ImageResponse } from '@vercel/og';
+import { loadGoogleFont } from '@/lib/utils';
 
 export const runtime = 'edge';
 
 export async function GET(req: NextRequest) {
-	const interBold = await fetch(new URL('/public/assets/Inter-Bold.ttf', import.meta.url)).then((res) =>
-		res.arrayBuffer()
-	);
-	const interRegular = await fetch(new URL('/public/assets/Inter-Regular.ttf', import.meta.url)).then((res) =>
-		res.arrayBuffer()
-	);
+	const interBold = await loadGoogleFont('Inter:wght@700');
+	const interRegular = await loadGoogleFont('Inter:wght@400');
 
 	const { searchParams } = new URL(req.url);
 	const title = searchParams.get('title')?.slice(0, 100);
