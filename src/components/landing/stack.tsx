@@ -12,7 +12,7 @@ export function Stack() {
 							<Underline className="pb-2.5">Frontend</Underline>
 						</h2>
 
-						<p className="">
+						<p className="leading-7">
 							I love to build performant and accessible web applications using{' '}
 							<span className="text-[#FAA1D0] font-medium">React.js</span> and{' '}
 							<span className="text-[#FAA1D0] font-medium">Typescript</span>. To make sure sure they look
@@ -34,7 +34,7 @@ export function Stack() {
 						<h2 className="text-slate-200 text-4xl md:text-5xl font-bold relative w-fit">
 							<Underline className="pb-2.5">Backend</Underline>
 						</h2>
-						<p className="">
+						<p className="leading-7">
 							While I&apos;m most comfortable on the client-side of things, I&apos;m also very familiar
 							with <span className="text-[#FAA1D0] font-medium">Node.js</span>. When building a large
 							application I think <span className="text-[#FAA1D0] font-medium">Nest.js</span> is a great

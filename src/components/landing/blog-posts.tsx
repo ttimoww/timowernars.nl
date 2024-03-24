@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Post, allPosts } from 'contentlayer/generated';
 import { format } from 'date-fns';
+import { ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -14,7 +15,7 @@ export function BlogPosts() {
 			<h2 className="text-slate-200 text-4xl md:text-6xl font-bold relative w-fit mb-8">
 				I write, <Underline className="pb-4">sometimes</Underline>
 			</h2>
-			<div className="grid md:grid-cols-2 gap-6">
+			<div className="grid md:grid-cols-2 gap-8">
 				{allPosts.map((post, i) => (
 					<BlogPost key={i} post={post} />
 				))}
@@ -27,6 +28,19 @@ interface PostProps extends React.HTMLProps<HTMLDivElement> {
 	post: Post;
 }
 function BlogPost({ post, className, ...props }: PostProps) {
+	return (
+		<article>
+			<h2 className="text-xl font-medium mb-auto text-slate-200">{post.title}</h2>
+			<p className="p text-sm mb-2 leading-7">
+				<span className="text-[#FAA1D0] font-medium">Next.js</span> - {format(post.date, 'MMMM d, yyyy')}
+			</p>
+			<p>{post.description}</p>
+			<Link className="text-[#FAA1D0] text-sm" href={`/blog/${post.slug}`}>
+				Read more <ChevronRight className="inline size-3" />
+			</Link>
+		</article>
+	);
+
 	return (
 		<article className={cn('rounded-lg overflow-hidden bg-slate-800/60 grid grid-cols-1', className)} {...props}>
 			<Link href={`/blog/${post.slug}`}>
