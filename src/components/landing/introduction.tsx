@@ -18,7 +18,7 @@ export function Introduction() {
 				</div>
 				<div className="absolute left-1/4 -bottom-[150px] md:right-8 md:top-0 md:left-auto md:bottom-auto">
 					<Image
-						src="/picofme.png"
+						src="/images/timo-pink.png"
 						alt="Tim Wernars"
 						width={100}
 						height={100}

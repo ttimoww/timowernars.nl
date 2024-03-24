@@ -18,5 +18,5 @@ export async function loadGoogleFont(font: string) {
 		}
 	}
 
-	throw new Error('failed to load font data');
+	throw new Error('failed to load Google font');
 }
