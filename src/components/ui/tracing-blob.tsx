@@ -19,7 +19,7 @@ export function TracingBlob() {
 	}, []);
 
 	return (
-		<div className="fixed inset-0 -z-10">
+		<div className="fixed inset-0 pointer-events-none">
 			<div
 				ref={blobRef}
 				className="blur-[80px] bg-[#1d4ed8] animate-spin-slow w-[600px] h-[600px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10 rounded-full"

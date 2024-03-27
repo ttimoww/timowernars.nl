@@ -90,11 +90,3 @@ export default function PostPage({ params }: PostPageProps) {
 		</div>
 	);
 }
-
-function Gradients() {
-	return (
-		<div aria-hidden="true" className="absolute inset-0 grid grid-cols-2 opacity-40 ">
-			<div className="blur-[100px] h-[15rem] aspect-square bg-gradient-to-br from-blue-400 to-purple-400 absolute top-0 right-0"></div>
-		</div>
-	);
-}

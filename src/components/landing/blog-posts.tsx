@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import Link from 'next/link';
 import { Post, allPosts } from 'contentlayer/generated';
 import { format } from 'date-fns';
@@ -10,13 +10,17 @@ import { Separator } from '@/components/ui/separator';
 import { Underline } from '@/components/ui/underline';
 
 export function BlogPosts() {
+	const sortedPosts = useMemo(() => {
+		return allPosts.sort((a, b) => (a.date > b.date ? -1 : 1));
+	}, [allPosts]);
+
 	return (
 		<section className="container">
 			<h2 className="text-slate-200 text-4xl md:text-6xl font-bold relative w-fit mb-8">
 				I write, <Underline className="pb-4">sometimes</Underline>
 			</h2>
 			<div className="grid md:grid-cols-2 gap-8">
-				{allPosts.map((post, i) => (
+				{sortedPosts.map((post, i) => (
 					<BlogPost key={i} post={post} />
 				))}
 			</div>

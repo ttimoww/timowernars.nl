@@ -8,6 +8,7 @@ import Alert, {
 	AlertDescriptionProps,
 	AlertDescription
 } from '@/components/blog/alert';
+import { UserProfileCard, UserProfileCardProps } from '@/components/blog/user-profile-card';
 
 const components = {
 	h2: ({ ...props }) => <h2 className="text-2xl font-bold text-slate-200 mb-2">{props.children}</h2>,
@@ -34,7 +35,8 @@ const components = {
 	AlertDescription: ({ ...props }: AlertDescriptionProps) => <AlertDescription {...props} />,
 	InformationCircleIcon: ({ ...props }) => <InfoIcon className="w-5 h-5" {...props} />,
 	ExclamationTriangleIcon: ({ ...props }) => <AlertTriangleIcon className="w-5 h-5" {...props} />,
-	CakeIcon: ({ ...props }) => <CakeIcon className="w-5 h-5" {...props} />
+	CakeIcon: ({ ...props }) => <CakeIcon className="w-5 h-5" {...props} />,
+	UserProfileCard: ({ ...props }: UserProfileCardProps) => <UserProfileCard {...props} />
 };
 
 interface MdxProps {

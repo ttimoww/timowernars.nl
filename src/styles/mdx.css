@@ -9,3 +9,8 @@
 [data-rehype-pretty-code-figure] pre {
 	@apply p-4 overflow-x-scroll rounded-md;
 }
+
+/* Highlighted line */
+[data-highlighted-chars][data-chars-id='error'] {
+	@apply border-b-2 border-red-500 bg-transparent;
+}

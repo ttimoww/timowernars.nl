@@ -2,5 +2,6 @@
 
 import posts__componentCompositionMdx from './posts__component-composition.mdx.json' assert { type: 'json' }
 import posts__secureNextjsServerActionsMdx from './posts__secure-nextjs-server-actions.mdx.json' assert { type: 'json' }
+import posts__unionComponentPropsMdx from './posts__union-component-props.mdx.json' assert { type: 'json' }
 
-export const allPosts = [posts__componentCompositionMdx, posts__secureNextjsServerActionsMdx]
+export const allPosts = [posts__componentCompositionMdx, posts__secureNextjsServerActionsMdx, posts__unionComponentPropsMdx]

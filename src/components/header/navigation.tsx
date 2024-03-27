@@ -20,7 +20,7 @@ function MobileNavigation({ className, ...props }: MobileNavigationProps) {
 				<SheetTrigger className="bg-zinc-600/50 backdrop-blur-lg px-6 rounded-full h-[50px]">
 					<MenuIcon />
 				</SheetTrigger>
-				<SheetContent side="left" className="bg-black-600/80 backdrop-blur-lg">
+				<SheetContent side="left">
 					<nav>TODO</nav>
 				</SheetContent>
 			</Sheet>

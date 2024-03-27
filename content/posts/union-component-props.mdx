@@ -1,0 +1,80 @@
+---
+title: Component Props using Discriminated Unions
+tag: React.js
+date: 2024-03-25
+description: Defining Component Props using Discriminated Unions in TypeScript
+---
+
+Discriminated Unions are a relatively advanced TypeScript feature that can be used to define a set of related types that share a common property. Discriminated Unions are a widely used pattern in TypeScript but are often overlooked when it comes to defining the types for React Component props. Let's look at an example usecase where we can use Discriminated Unions to define the props for a React Component.
+
+## Example Usecase
+Let's consider we're asked to create a `UserProfileCard` component that can be used to display information about user profiles. The component should be able to display two different types of user profiles - a regular user profile and an admin profile. The component should always display the user's name, but depending on the type of profile, it should display additional information. In case of a regular user profile, it should display the user's email address, and in case of an admin profile, it should display the permissions of the admin user. 
+
+<div style={{display: 'flex', gap: '20px'}}>
+	<UserProfileCard name="John D." type="user" email="example@email.com" />
+
+	<UserProfileCard name="John D." type="admin" permissions={['read', 'write']} />
+</div>
+
+## Implementation without Union Discriminators
+
+A good first approach to implement the `UserProfileCard` component would be to start with defining the props we need to properly display all the information. Looking ath the examples above, we can deconstruct them into the following set op props:
+
+- `name` - The name of the user
+- `type` - The type of the user profile (either `user` or `admin`)
+- `email` - The email address of the user
+- `permissions` - The permissions of the admin UserProfileCard
+
+A junior developer version of myself would probably implemented the component like this (simplified JSX for readability):
+
+```jsx
+export type UserProfileCardProps = {
+	name: string;
+	type: 'user' | 'admin';
+	email?: string;
+	permissions?: string[];
+}
+export function UserProfileCard(props: UserProfileCardProps) {
+	return (
+		<div>
+			<p>{props.name}</p>
+			{props.email && <p>{props.email}</p>}
+			{props.permissions && props.permissions.map((permission) => <span key={permission}>{permission}</span>)}
+		</div>
+	);
+}
+```
+
+```jsx /type/1-3 
+
+```jsx /type/2-3#error
+
+```jsx /type/1-3 
+
+```jsx /type/2-3#error
+type Image = {
+	type: "image";
+	imageUrl: string;
+};
+
+type Video = {
+	type: "video";
+	videoUrl: string;
+};
+
+type MediaBoxProps = {
+	title: string;
+	description: string;
+} & (Image | Video);
+
+export function MediaBox(props: MediaBoxProps) {
+	return (
+		<div>
+			<h2>{props.title}</h2>
+			<p>{props.description}</p>
+			{props.type === "image" && <img src={props.imageUrl} />}
+			{props.type === "video" && <video src={props.videoUrl} />}
+		</div>
+	);
+}
+```
